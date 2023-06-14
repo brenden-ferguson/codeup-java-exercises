@@ -6,7 +6,7 @@ import static java.lang.Integer.parseInt;
 public class ConsoleExercises {
     public static void main(String[] args) {
         double pi = 3.14159;
-        System.out.printf("The value of pi is approximately %s %n", pi);
+        System.out.format("The value of pi is approximately %.2f %n", pi);
 
         Scanner scanner = new Scanner(System.in);
 
@@ -34,5 +34,7 @@ public class ConsoleExercises {
         String userLength = scanner.nextLine();
         System.out.println("Perimeter: " + ((parseInt(userWidth)*2) + (parseInt(userLength)*2)));
         System.out.println("Area: " + (parseInt(userWidth)) * (parseInt(userLength)));
+
+//        Can also use Integer.parseInt(variableName)
     }
 }
