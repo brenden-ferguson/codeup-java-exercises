@@ -1,8 +1,10 @@
+import java.util.Arrays;
+
 class Person {
     private String name;
 //    ----field----
 
-    public Person (String name){
+    public Person(String name) {
         this.name = name;
     }
 //    ----constructor----
@@ -10,17 +12,39 @@ class Person {
     public void sayHello() {
         System.out.format("Hello from %s!%n", name);
     }
-//    ----method----
-    public String getName(){
+
+    //    ----method----
+    public String getName() {
         return name;
     }
 //    ----method----
 
-    public void setName(String newName){
+    public void setName(String newName) {
         name = newName;
     }
 //    ----method----
 
+    public static Person[] addPerson(Person[] people, String name) {
+        int length = people.length;
+        boolean isFull = true;
+        for (Person person : people) {
+            if (person == null) {
+                isFull = false;
+                break;
+            }
+        }
+        if (isFull) {
+            // Resizes the array
+            people = Arrays.copyOf(people, length + 1);
+        }
+        for (int i = 0; i < people.length; i++) {
+            if (people[i] == null) {
+                people[i] = new Person(name);
+                break;
+            }
+        }
+        return people;
+    }
 
     public static void main(String[] args) {
         Person person = new Person("Brenden");
@@ -45,7 +69,6 @@ class Person {
 //        person2.setName("Jane");----------------------This Also sets person1 as "Jane"
 //        System.out.println(person1.getName());
 //        System.out.println(person2.getName());
-
 
 
     }
