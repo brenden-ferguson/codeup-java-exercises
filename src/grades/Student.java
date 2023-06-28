@@ -29,4 +29,8 @@ public class Student {
         }
         return total / grades.size();
     }
+    @Override
+    public String toString() {
+        return "Student: " + studentName + "; Grade Average: " + getGradeAverage();
+    }
 }
