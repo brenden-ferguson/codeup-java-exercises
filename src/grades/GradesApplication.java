@@ -1,6 +1,7 @@
 package grades;
 
 import util.Input;
+
 import java.util.HashMap;
 
 
@@ -8,7 +9,8 @@ public class GradesApplication {
     public static void main(String[] args) {
         CommandLine();
     }
-    public static void CommandLine(){
+
+    public static void CommandLine() {
         HashMap<String, Student> usernames = new HashMap<>();
         Student brenden = new Student("Brenden", 90);
         brenden.addGrade(95);
@@ -36,14 +38,19 @@ public class GradesApplication {
         for (String username : usernames.keySet()) {
             studentList.append(username).append(" ");
         }
-        System.out.printf(studentList.toString().trim()+"%n%nWhich student grade would you like to view?%n");
+        System.out.printf(studentList.toString().trim() + "%n%nWhich student grade would you like to view?%n");
         String userInput = input.getString();
-        System.out.println(usernames.get(userInput));
-        Boolean userResponse = input.yesNo("Would you like to view another student? [y/n]");
-        if(userResponse){
+        if (usernames.get(userInput) != null) {
+            System.out.println(usernames.get(userInput));
+            Boolean userResponse = input.yesNo("Would you like to view another student? [y/n]");
+            if (userResponse) {
+                CommandLine();
+            } else {
+                System.out.println("Exiting...");
+            }
+        } else {
+            System.out.println("Not a valid username.");
             CommandLine();
-        } else{
-            System.out.println("Exiting...");
         }
     }
 }
