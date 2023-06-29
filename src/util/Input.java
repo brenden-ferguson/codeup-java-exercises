@@ -33,7 +33,14 @@ public class Input {
 
     public Integer getInt(){
         System.out.println("Enter an Integer: ");
-        return scanner.nextInt();
+        while (true) {
+            try {
+                String userInput = getString();
+                return Integer.valueOf(userInput);
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a valid integer.");
+            }
+        }
     }
 
     public Double getDouble(double min, double max){
@@ -47,7 +54,14 @@ public class Input {
 
     public Double getDouble(){
         System.out.println("Enter a Double: ");
-        return scanner.nextDouble();
+        while(true){
+            try{
+                String userInput = getString();
+                return Double.valueOf(userInput);
+            } catch(NumberFormatException e){
+                System.out.println("Invalid input. Please enter a valid double.");
+            }
+        }
     }
 
 }
