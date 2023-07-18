@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class MethodsExercise {
+public class MethodsExercises {
 //    public static long getPower(int base, int exponent) {
 //        if (exponent == 0) {
 //            return 1;
@@ -78,9 +78,9 @@ public class MethodsExercise {
         return "Your final roll is: " + (diceOne + diceTwo);
     }
 
-    public static String randomNumber(){
+    public static int randomNumber(){
         int randomNumber = (int) ((Math.floor(Math.random()* 100)) + 1);
-        return highAndLow(randomNumber);
+        return randomNumber;
     }
 
     public static String highAndLow(int randomNumber){
